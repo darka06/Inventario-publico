@@ -1,0 +1,33 @@
+/* ==========================================================================
+   INVENTARIO GLOBAL - styles.css (manifiesto)
+   El ORDEN de los @import es el orden de la cascada: no lo cambies sin probar.
+   Al editar un módulo, sube su ?v= (el v= de styles.css no refresca los importados).
+   ========================================================================== */
+@import "base/_base.css?v=52"; /* Variables, reseteo y body */
+@import "layout/_sidebar.css?v=47"; /* Menú lateral y botón ☰ */
+@import "base/_scrollbars.css?v=47"; /* Barras de desplazamiento */
+@import "layout/_layout.css?v=47"; /* Estructura general */
+@import "components/_cards.css?v=47"; /* Tarjetas del inicio */
+@import "layout/_responsive.css?v=47"; /* Sidebar escritorio y móvil */
+@import "views/_inicio.css?v=47"; /* Inicio y botones de tarjeta */
+@import "components/_tables.css?v=47"; /* Tablas */
+@import "components/_charts.css?v=51"; /* Gráficos, tooltips y leyendas */
+@import "components/_buttons.css?v=47"; /* Botones del encabezado */
+@import "views/_organize.css?v=52"; /* Organizar widgets */
+@import "views/_widget-builder.css?v=53"; /* Diálogo Crear widget */
+@import "views/_inventario-usuarios.css?v=47"; /* Tarjetas de usuarios */
+@import "components/_modal.css?v=49"; /* Modal base */
+@import "views/_inventario-equipos.css?v=47"; /* Tarjetas de equipos, buscador y filtros */
+@import "views/_usuario.css?v=47"; /* Página Usuario: formulario */
+@import "views/_modulos.css?v=47"; /* Módulos operativos */
+@import "views/_home-widgets.css?v=47"; /* Widgets del inicio */
+@import "views/_prestamos-historial.css?v=48"; /* Alquiler/Venta e historial */
+@import "layout/_sidebar-profile.css?v=47"; /* Perfil en el menú lateral */
+@import "components/_detail-actions.css?v=47"; /* Detalle: acciones y modal de historial */
+@import "components/_skeleton.css?v=48"; /* Skeleton loaders */
+@import "components/_detail.css?v=47"; /* Detalle: tarjeta, métricas y filas */
+@import "components/_forms.css?v=50"; /* Formularios Nuevo/Editar */
+@import "components/_float-windows.css?v=47"; /* Ventanas flotantes */
+@import "components/_tabs.css?v=47"; /* Pestañas de página */
+@import "views/_tecnicos.css?v=47"; /* Técnico: ficha y tarjetas */
+@import "views/_auditoria.css?v=50"; /* Auditoría de herramientas */

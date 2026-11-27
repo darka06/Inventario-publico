@@ -1,0 +1,136 @@
+/* Tablero libre de Inicio */
+:root {
+  --board-cols: 12;
+  --board-rows: 18;
+  --board-gap: 10px;
+  --board-row-height: 40px;
+}
+#dash.board { display: block; position: relative; margin-top: 4px; transition: height .2s; height: var(--board-height, auto); }
+.bw { position: absolute; display: flex; flex-direction: column; min-width: 0; background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; box-shadow: 0 1px 6px rgba(0,0,0,.06); overflow: hidden; transition: left .18s, top .18s, width .18s, height .18s; }
+.bw.tinted { background: color-mix(in srgb, var(--ac) 8%, #fff); }
+.bw-ac-1 { --ac: #130a74; }
+.bw-ac-2 { --ac: #e63b4a; }
+.bw-ac-3 { --ac: #06c167; }
+.bw-ac-4 { --ac: #e0a800; }
+.bw-ac-5 { --ac: #111111; }
+.bw.bare { background: none; border: 0; box-shadow: none; }
+.stack .bw { position: relative; margin-bottom: 12px; }
+.stack .bw { height: auto !important; min-height: 0; }
+.stack .bw-b { flex: 0 0 auto; overflow: visible; }
+.stack .b-note textarea { height: 120px; }
+.stack .b-draw { height: 200px; }
+.bw-h { display: flex; align-items: center; justify-content: space-between; min-height: 38px; padding: 4px 10px 4px 14px; border-bottom: 1px solid #eee; }
+.bw-h h3 { margin: 0; font-size: 14px; font-weight: 600; color: #222; }
+.bare .bw-h { display: none; }
+.bw-t { display: none; gap: 2px; }
+.bw-t button { width: 26px; height: 26px; border: 0; border-radius: 6px; background: none; font-size: 16px; cursor: pointer; color: #444; }
+.bw-t button:hover { background: #f1f1f1; }
+.bw-b { flex: 1; min-height: 0; padding: 10px 12px; overflow: auto; }
+.bw-r { display: none; position: absolute; right: 0; bottom: 0; width: 20px; height: 20px; cursor: nwse-resize; background: linear-gradient(135deg, transparent 50%, #2f66dd 50%); touch-action: none; }
+.editing .bw { outline: 2px dashed #b9c3d6; outline-offset: -2px; }
+.editing .bw-h { cursor: grab; touch-action: none; background: #f6f8fc; }
+.editing .bare .bw-h { display: flex; position: absolute; inset: 0 0 auto 0; z-index: 2; background: #f6f8fcdd; }
+.editing .bw-t, .editing .bw-r { display: flex; }
+.editing .bw-r { display: block; }
+.stack.editing .bw-r { display: none; }
+.bw.moving { z-index: 10; opacity: .9; transition: none; box-shadow: 0 8px 24px rgba(0,0,0,.2); cursor: grabbing; }
+.b-note { padding: 0; }
+.b-note textarea { width: 100%; height: 100%; padding: 12px; border: 0; resize: none; background: none; font: inherit; outline: none; }
+.b-todo input[type=text], .b-todo > input { width: 100%; padding: 6px 8px; margin-bottom: 6px; border: 1px solid var(--border); border-radius: 6px; font: inherit; }
+.b-todo ul, .rows { list-style: none; margin: 0; padding: 0; }
+.b-todo li { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; }
+.b-todo label { display: flex; gap: 8px; align-items: center; }
+.b-todo .done { text-decoration: line-through; color: var(--muted); }
+.b-todo li button { border: 0; background: none; color: #999; cursor: pointer; font-size: 16px; }
+.b-draw { display: flex; flex-direction: column; padding: 6px; }
+.dr-bar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; padding-bottom: 6px; }
+.dr-bar button { padding: 2px 8px; border: 1px solid var(--border); border-radius: 6px; background: #fff; cursor: pointer; font: inherit; font-size: 12px; }
+.dr-bar .sw { width: 20px; height: 20px; padding: 0; border-radius: 50%; }
+.sw-color-1 { --bg-color: #130a74; background: var(--bg-color); }
+.sw-color-2 { --bg-color: #e63b4a; background: var(--bg-color); }
+.sw-color-3 { --bg-color: #06c167; background: var(--bg-color); }
+.sw-color-4 { --bg-color: #e0a800; background: var(--bg-color); }
+.sw-color-5 { --bg-color: #111111; background: var(--bg-color); }
+.dr-bar input { width: 70px; }
+.dr-wrap { flex: 1; min-height: 0; position: relative; border: 1px dashed var(--border); border-radius: 6px; }
+.dr-wrap canvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; cursor: crosshair; }
+.b-kpi, .b-clock { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+.kpi { font-size: 38px; line-height: 1.1; color: var(--ac, #130a74); }
+.kpi-l { color: var(--muted); font-size: 13px; text-transform: capitalize; }
+.bar { display: grid; grid-template-columns: minmax(70px, 30%) 1fr 32px; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 12px; }
+.bar span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bar i { height: 18px; width: var(--v); background: var(--ac, #130a74); border-radius: 4px; }
+.bar b { text-align: right; }
+.rows li { display: flex; justify-content: space-between; gap: 8px; padding: 7px 0; border-bottom: 1px solid #eee; font-size: 13px; }
+.rows small { color: var(--muted); white-space: nowrap; }
+.big { margin: 0; font-size: 26px; color: #222; }
+.b-text { padding: 0; display: flex; align-items: center; }
+.empty, .err { color: var(--muted); font-size: 13px; }
+.err { color: #d73a49; }
+.bw-dlg { border: 0; border-radius: 12px; padding: 20px; width: min(520px, 92vw); box-shadow: 0 10px 40px rgba(0,0,0,.3); }
+.bw-dlg::backdrop { background: rgba(0,0,0,.35); }
+.bw-dlg h3 { margin: 0 0 12px; }
+.bw-dlg label { display: grid; gap: 4px; margin-bottom: 10px; font-size: 13px; }
+.bw-dlg input, .bw-dlg select { padding: 6px 8px; border: 1px solid var(--border); border-radius: 6px; font: inherit; }
+.bw-dlg .btn-save, .bw-dlg .btn-cancel { margin-right: 8px; }
+.bw-cat { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+.bw-cat button { display: grid; gap: 2px; padding: 10px; text-align: left; border: 1px solid var(--border); border-radius: 8px; background: #fff; cursor: pointer; font: inherit; }
+.bw-cat button:hover { border-color: #2f66dd; background: #f6f8fc; }
+.bw-cat small { color: var(--muted); }
+.bw-toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); padding: 10px 16px; border-radius: 8px; background: #222; color: #fff; z-index: 99; }
+
+.bw-dlg { position: fixed; inset: 0; margin: auto; max-height: 90vh; overflow: auto; }
+.bw-size { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.bw-cat button.on { border-color: #2f66dd; background: #eef3ff; }
+
+/* Sin barra de desplazamiento en la página: el tablero ya se ajusta a la pantalla */
+html:has(body.no-scroll), body.no-scroll { overflow: hidden; height: 100%; }
+.no-scroll .layout { height: 100vh; min-height: 0; }
+/* Gráficos y calendario */
+.ch { width: 100%; height: 100%; }
+.pie { display: flex; gap: 14px; align-items: center; height: 100%; }
+.pie svg { flex: 0 0 auto; height: 100%; max-height: 100%; aspect-ratio: 1; min-width: 0; }
+.pie ul { list-style: none; margin: 0; padding: 0; flex: 1; min-width: 0; font-size: 12px; }
+.pie li { display: flex; align-items: center; gap: 6px; padding: 3px 0; }
+.pie li i { width: 10px; height: 10px; border-radius: 2px; flex: none; }
+.pie li span { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.b-cal { display: flex; flex-direction: column; }
+.cal-h { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; text-transform: capitalize; }
+.cal-h button { width: 28px; height: 28px; border: 0; border-radius: 6px; background: #f1f1f1; font-size: 18px; cursor: pointer; }
+.cal-g { flex: 1; display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; text-align: center; font-size: 12px; align-content: start; }
+.cal-g b { color: var(--muted); padding: 3px 0; }
+.cal-g span { padding: 5px 0; border-radius: 6px; }
+.cal-g .today { background: var(--ac, #130a74); color: #fff; font-weight: 700; }
+
+/* Agregar widget: buscador, pestañas, tarjetas con vista previa y configuración */
+.bw-dlg.bw-dlg-wide { width: min(780px, 94vw); }
+.bw-dlg .bw-search { width: 100%; margin-bottom: 10px; }
+.bw-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.bw-tabs button { padding: 5px 12px; border: 1px solid var(--border); border-radius: 999px; background: #fff; font: inherit; font-size: 13px; cursor: pointer; }
+.bw-tabs button:hover { background: #f6f8fc; }
+.bw-tabs button.on { background: #130a74; border-color: #130a74; color: #fff; }
+.bw-dlg .bw-cat { grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); max-height: 280px; overflow: auto; padding: 2px; }
+.bw-dlg .bw-cat .empty { grid-column: 1 / -1; padding: 16px 0; text-align: center; }
+.bw-prev { display: block; height: 62px; margin-bottom: 6px; border-radius: 6px; background: #f6f8fc; }
+.bw-prev svg { display: block; width: 100%; height: 100%; }
+.bw-cat button b { font-size: 13.5px; }
+.bw-cat button small { font-size: 12px; line-height: 1.3; }
+.bw-cfg { margin: 4px 0 14px; padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px; background: #fafbfd; }
+.bw-cfg h4 { margin: 0 0 10px; font-size: 13.5px; }
+.bw-cfg label, .bw-field { margin-bottom: 10px; }
+.bw-cfg .bw-size { margin-bottom: 0; }
+.bw-dlg .bw-field { display: grid; gap: 4px; font-size: 13px; }
+.bw-colors { display: flex; align-items: center; gap: 8px; }
+.bw-colors button { width: 26px; height: 26px; padding: 0; border: 2px solid #fff; border-radius: 50%; box-shadow: 0 0 0 1px #cfd5e2; cursor: pointer; }
+.bw-colors button.on { box-shadow: 0 0 0 2px #130a74; }
+.bw-colors input[type=color] { width: 34px; height: 28px; padding: 0; border: 1px solid var(--border); border-radius: 6px; background: #fff; cursor: pointer; }
+
+/* Widgets nuevos: porcentaje y accesos rápidos */
+.b-gauge { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 6px; }
+.gauge { width: 80%; height: 10px; border-radius: 5px; background: #e5e7eb; overflow: hidden; }
+.gauge i { display: block; height: 100%; border-radius: 5px; background: var(--ac, #130a74); }
+.quick { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 8px; }
+.quick a { display: block; padding: 9px 10px; border: 1px solid #e5e7eb; border-radius: 8px; color: var(--ac, #130a74); font-size: 13px; font-weight: 600; text-align: center; text-decoration: none; background: #fff; }
+.quick a:hover { background: color-mix(in srgb, var(--ac, #130a74) 8%, #fff); }
+.editing .quick { pointer-events: none; }
+.bw-dlg .bw-cat.short { max-height: 176px; }

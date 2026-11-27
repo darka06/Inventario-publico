@@ -1,0 +1,170 @@
+/* ===== Tarjetas de equipos ===== */
+.modal-body { padding: 20px 24px 24px; overflow: auto; }
+
+.eq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.eq-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 16px;
+  background: #fff;
+}
+
+.eq-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #eef0f2;
+}
+.eq-card-head h3 { margin: 0; font-size: 16px; }
+
+.eq-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 16px;
+}
+.eq-field { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.eq-field.full { grid-column: 1 / -1; }
+
+.eq-label { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: #6b7280; }
+.eq-value { font-size: 14px; color: #111827; overflow-wrap: anywhere; }
+.eq-field.serial .eq-value { font-family: ui-monospace, Consolas, monospace; font-size: 13px; }
+
+.eq-empty { grid-column: 1 / -1; text-align: center; color: #6b7280; padding: 32px 0; }
+
+@media (max-width: 800px) {
+  .eq-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== Inventario: buscador, filtros y tarjetas de equipos ===== */
+.inv-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 4px 0 18px;
+}
+
+.inv-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1 1 280px;
+  min-width: 220px;
+  height: 40px;
+  padding: 0 12px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.inv-search:focus-within { border-color: #3b92ea; box-shadow: 0 0 0 3px rgba(59, 146, 234, .15); }
+.inv-search img { width: 16px; height: 16px; opacity: .55; }
+
+.inv-search input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 14px;
+  color: #333;
+}
+
+.inv-filter { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
+
+.inv-filter select {
+  height: 40px;
+  padding: 0 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  font-size: 14px;
+  color: #333;
+}
+
+.inv-count { margin: 0; font-size: 13px; color: var(--muted); }
+.inv-count:empty { display: none; }
+
+.cards.inv {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+.icard {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 18px 14px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, .06);
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.icard:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(0, 0, 0, .12); }
+.icard:focus-visible { outline: 2px solid #3b92ea; outline-offset: 2px; }
+
+.icard-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+
+.icard-code {
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: #eef2f6;
+  color: #1f2937;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.icard h2 {
+  margin: 4px 0 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--brand);
+  overflow-wrap: anywhere;
+}
+
+.icard-meta { margin: 0 0 10px; font-size: 13px; color: var(--muted); overflow-wrap: anywhere; }
+
+.icard .ustats { margin-top: auto; gap: 6px; }
+.icard .ustats li { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: baseline; gap: 10px; font-size: 13px; }
+.icard .ustats .istat-label { color: #6b7280; white-space: nowrap; }
+.icard .ustats li b { text-align: right; overflow-wrap: anywhere; }
+
+.acode {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  height: 48px;
+  max-width: 140px;
+  padding: 0 10px;
+  border-radius: 10px;
+  background: #eef2f6;
+  color: #1f2937;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-hint { margin: 18px 0 0; font-size: 13px; color: var(--muted); }
+.user-hint a { color: var(--blue); }
+
+@media (max-width: 800px) {
+  .cards.inv { grid-template-columns: 1fr; }
+  .inv-search { flex: 1 1 100%; }
+}
+

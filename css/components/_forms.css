@@ -1,0 +1,151 @@
+/* ===== Formularios (Nuevo / Editar): mismo estilo que el detalle ===== */
+.modal-box.module-form-modal {
+  --d-text: #1f2937;
+  --d-muted: #6b7280;
+  --d-line: #edf0f4;
+  width: min(560px, 100%);
+  max-height: calc(100vh - 24px);
+  border-radius: 14px;
+}
+.modal-box.module-form-modal.modal-compact { width: min(380px, 100%); }
+.module-form-modal .modal-head {
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--d-line);
+}
+.module-form-modal .modal-head h2 { flex: 1 1 0; min-width: 0; color: var(--d-text); font-size: 17px; font-weight: 600; }
+.module-form-modal .modal-close { margin-left: 0; color: var(--d-muted); }
+.module-form-modal #module-form,
+.module-form-modal #user-form { padding: 0; background: #fff; }
+.module-form-modal #form-fields,
+.module-form-modal .form-grid {
+  display: block;
+  padding: 0 20px 8px;
+  overflow: auto;
+}
+
+/* Cabecera con icono, igual que el detalle */
+.module-form-modal .detail-hero {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 0;
+  padding: 14px 0;
+  border: 0;
+  border-bottom: 1px solid var(--d-line);
+  border-radius: 0;
+  background: transparent;
+}
+.module-form-modal .detail-product-icon { flex: none; width: 40px; height: 40px; border-radius: 10px; box-shadow: none; }
+.module-form-modal .detail-product-icon img { width: 30px; height: 30px; }
+.module-form-modal .detail-code { font-size: 14px; }
+.module-form-modal .detail-category { padding: 0; background: transparent; font-size: 12px; }
+
+/* Secciones: título pequeño en mayúsculas, sin caja */
+.module-form-modal #form-fields > .asset-form-section,
+.module-form-modal .asset-form-section {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.module-form-modal .asset-form-section-heading { margin: 0; }
+.module-form-modal .asset-form-section-heading h3 {
+  margin: 16px 0 2px;
+  color: var(--d-muted);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.module-form-modal .module-form-modal .asset-form-section-fields,
+.module-form-modal.modal-compact .asset-form-section-fields { display: block; }
+
+/* Campos: icono · etiqueta a la izquierda, control a la derecha */
+.module-form-modal .f {
+  display: grid;
+  grid-template-columns: minmax(120px, 40%) minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--d-line);
+  color: var(--d-muted);
+  font-size: 13px;
+}
+.module-form-modal .f[hidden] { display: none; }
+.module-form-modal .f:last-child { border-bottom: 0; }
+.module-form-modal .f-label { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.module-form-modal .f-label .detail-field-icon { color: #8794a8; }
+.module-form-modal .f.full { grid-template-columns: 1fr; align-items: start; gap: 6px; }
+.module-form-modal .f input,
+.module-form-modal .loan-selected-asset input,
+.module-form-modal .f select,
+.module-form-modal .f textarea {
+  min-width: 0;
+  padding: 7px 10px;
+  border: 1px solid #e3e8ef;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: var(--d-text);
+  font-size: 14px;
+  font-weight: 500;
+}
+.module-form-modal .f textarea { font-weight: 400; }
+.module-form-modal .f input:focus,
+.module-form-modal .loan-selected-asset input:focus,
+.module-form-modal .f select:focus,
+.module-form-modal .f textarea:focus {
+  outline: 0;
+  border-color: #2f66dd;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(47, 102, 221, .14);
+}
+
+/* Pie: botones abajo a la derecha, como las acciones del detalle */
+.module-form-modal .modal-foot {
+  justify-content: flex-end;
+  padding: 10px 16px;
+  border-top: 1px solid #e7e7e7;
+  background: #fff;
+}
+.module-form-modal .modal-foot .btn-save,
+.module-form-modal .modal-foot .btn-cancel,
+.module-form-modal .modal-foot .btn-danger { height: 32px; padding: 0 14px; font-size: 13px; white-space: nowrap; }
+.module-form-modal .modal-foot .btn-save { background: var(--green); color: #14210a; }
+.module-form-modal .modal-foot .btn-save:hover { background: #8bbd17; }
+
+@media (max-width: 800px) {
+  .module-form-modal .modal-head { padding: 12px 14px; }
+  .module-form-modal #module-form,
+  .module-form-modal #user-form { padding: 0; }
+  .module-form-modal #form-fields,
+  .module-form-modal .form-grid { padding: 0 14px 8px; }
+  .module-form-modal .f { grid-template-columns: minmax(96px, 42%) minmax(0, 1fr); gap: 8px; }
+}
+
+/* ===== Unificación detalle / editar / crear: una sola columna de filas, igual que el detalle ===== */
+.module-form-modal .asset-form-section-fields,
+.module-form-modal.modal-compact .asset-form-section-fields {
+  display: block;
+  grid-template-columns: none;
+  gap: 0;
+}
+.module-form-modal .f.full { display: grid; grid-template-columns: 1fr; align-items: start; gap: 6px; }
+.module-form-modal .f.full textarea { width: 100%; }
+.module-form-modal .f input,
+.module-form-modal .f select,
+.module-form-modal .f textarea { width: 100%; box-sizing: border-box; font-family: inherit; }
+.module-form-modal .f textarea { resize: vertical; min-height: 64px; }
+.module-form-modal .f-label { font-size: 13px; font-weight: 400; color: var(--d-muted); }
+.module-form-modal #form-fields { padding-bottom: 12px; }
+@media (max-width: 800px) {
+  .module-form-modal .asset-form-section-fields { display: block; }
+  .module-form-modal .f.full { grid-template-columns: 1fr; }
+}
+
+/* Utilitarios para estilos dinámicos */
+.input-narrow { width: 90px; }
+.input-readonly { background-color: #f5f5f5; color: #666; }
+
+

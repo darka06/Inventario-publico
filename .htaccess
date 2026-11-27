@@ -1,0 +1,46 @@
+# =====================================================================
+# Inventario_Global - Seguridad (colocar en la raiz del proyecto)
+# Requiere mod_headers y mod_rewrite (vienen activos en XAMPP).
+# =====================================================================
+
+Options -Indexes
+
+# ---------------------------------------------------------------------
+# 1) Cabeceras de seguridad para TODAS las respuestas (HTML, JS, CSS, imagenes)
+# ---------------------------------------------------------------------
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+
+    # CSP: el sitio no usa CDN ni manejadores onclick; solo se permite contenido propio.
+    # style-src 'self' sin 'unsafe-inline': el JS aplica estilos dinámicos por CSSOM (data-s, element.style).
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'"
+
+    # Si usas HTTPS (no en localhost), descomenta:
+    # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+# ---------------------------------------------------------------------
+# 2) Bloquear carpetas y archivos que NO deben ser accesibles desde el navegador
+#    (database/, vendor/, tests/, docs/, .specify/, etc.)
+# ---------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Cualquier archivo o carpeta que empiece con punto (.git, .specify, .env, etc.)
+    RewriteRule "(^|/)\.(?!well-known/)" - [F,L]
+
+    RewriteRule ^(database|vendor|tests|docs)(/|$) - [F,L]
+</IfModule>
+
+# Respaldo (mod_alias): bloquea rutas con punto (.git, .env...) aunque falle mod_rewrite
+<IfModule mod_alias.c>
+    RedirectMatch 403 "/\.(?!well-known/)"
+</IfModule>
+
+# Archivos sueltos sensibles
+<FilesMatch "\.(sql|md|json|lock|xml|yml|yaml|log|bak|zip|ps1|py|ini|dist|example)$|^(composer\.(json|lock)|phpunit\.xml|AGENTS\.md|\.gitignore)$">
+    Require all denied
+</FilesMatch>

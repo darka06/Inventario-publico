@@ -1,0 +1,37 @@
+/* Hoja de impresión del formato «Entrega de activos e insumos» (se carga dentro del iframe de impresión). */
+@page { size: letter portrait; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { font: 12px/1.25 Arial, Helvetica, sans-serif; color: #111; padding: 6mm 8mm; }
+.sheet { page-break-inside: avoid; break-inside: avoid; }
+table { width: 100%; border-collapse: collapse; }
+td, th { border: 1px solid #222; padding: 1px 6px; vertical-align: middle; }
+.c { text-align: center; }
+.lbl { width: 22%; }
+.head td { height: 34px; }
+.logo { width: 28%; }
+.logo img { height: 40px; vertical-align: middle; }
+.logo b { font-size: 23px; letter-spacing: -.5px; margin-left: 6px; vertical-align: middle; color: #130a74; }
+.title { font-weight: 700; text-align: center; font-size: 15px; }
+.center { text-align: center; font-weight: 700; background: #f2f2f2; }
+.items th { background: #f2f2f2; }
+.items td { height: 25px; }
+.items td:nth-child(1) { width: 7%; }
+.items td:nth-child(2) { width: 21%; }
+.items td:nth-child(4) { width: 15%; }
+.items td:nth-child(5) { width: 11%; }
+.info .lbl { width: 47%; }
+.items tbody td { height: var(--cell-height, 25px); }
+.sheet { zoom: var(--sheet-zoom, 1); }
+.notes { height: 46px; vertical-align: top; }
+.legal { font-size: 11px; margin: 6px 0; line-height: 1.35; text-align: justify; }
+.sign td { border: none; padding: 3px 0; }
+.line { border-bottom: 1px solid #222 !important; width: 55%; }
+.mt6 { margin-top: 6px; }
+.w20 { width: 20%; }
+.w30 { width: 30%; }
+.fr { float: right; }
+.box-top0 { border: 1px solid #222; border-top: none; padding: 3px; }
+.box-bottom0 { border: 1px solid #222; border-bottom: none; margin-top: 6px; padding: 3px; }
+.sign td.col-l { width: 50%; padding-right: 10px; }
+.sign td.col-r { width: 50%; padding-left: 10px; }

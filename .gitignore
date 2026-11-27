@@ -1,0 +1,35 @@
+# Local credentials and environment
+api/config.local.php
+config.local.php
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+
+# Private source data and database exports
+database/importar_inventario_excel.sql
+*.bak
+*.sql.gz
+*.zip
+*.sqlite
+*.sqlite3
+*.db
+
+# Logs and generated runtime files
+*.log
+/logs/
+/.phpunit.cache/
+
+# Reinstallable dependencies
+/vendor/
+/node_modules/
+
+# Local editor and operating system files
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+
+# Temporary work

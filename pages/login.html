@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar sesión - Inventario</title>
+  <link rel="stylesheet" href="../css/accesos.css?v=2">
+  <link rel="icon" href="../icons/favicon.svg?v=3" type="image/svg+xml">
+</head>
+<body class="login-page" data-root="../" data-page="login" data-public="true">
+  <div class="login-glow" aria-hidden="true"></div>
+  <main class="login-card">
+    <img class="login-logo" src="../icons/logo.svg?v=3" alt="">
+    <h1 id="login-title">Inventario</h1>
+    <p class="login-sub" id="login-sub">Ingresa con tu usuario para continuar.</p>
+
+    <p class="login-error" id="login-error" role="alert" hidden></p>
+
+    <form id="login-form" novalidate>
+      <label class="ac-field" id="name-field" hidden>
+        <span>Nombre completo</span>
+        <input type="text" id="login-name" autocomplete="name" maxlength="120">
+      </label>
+      <label class="ac-field">
+        <span>Nombre de usuario</span>
+        <input type="text" id="login-user" autocomplete="username" autocapitalize="none" spellcheck="false" maxlength="32" required>
+      </label>
+      <label class="ac-field">
+        <span>Contraseña</span>
+        <div class="pass-wrap">
+          <input type="password" id="login-pass" autocomplete="current-password" maxlength="200" required>
+          <button type="button" id="toggle-pass" aria-controls="login-pass login-confirm">Mostrar</button>
+        </div>
+      </label>
+      <label class="ac-field" id="confirm-field" hidden>
+        <span>Repite la contraseña</span>
+        <input type="password" id="login-confirm" autocomplete="new-password" maxlength="200">
+      </label>
+      <button type="submit" class="ac-btn primary wide" id="login-submit">Entrar</button>
+    </form>
+  </main>
+  <p class="login-join">Inventario · acceso solo para usuarios autorizados</p>
+  <script src="../js/api-client.js?v=4"></script>
+  <script src="../js/login.js"></script>
+</body>
+</html>

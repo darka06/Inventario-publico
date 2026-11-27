@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Técnicos - Inventario</title>
+   <link rel="stylesheet" href="../css/styles.css?v=53">
+   <link rel="icon" href="../icons/favicon.svg?v=3" type="image/svg+xml">
+</head>
+
+<body data-root="../" data-page="usuario">
+    <img class="menu-btn" src="../icons/ui/menu.svg" alt="Menú" role="button" tabindex="0" aria-controls="sidebar">
+
+    <div class="layout">
+        <div class="backdrop"></div>
+        <aside class="sidebar" id="sidebar"></aside>
+
+        <main class="content">
+            <div class="breadcrumb">
+                <a href="#">Herramientas y Equipos de trabajo</a><span>/</span>Técnicos
+            </div>
+
+            <div class="page-head">
+                <h1>Técnicos</h1>
+            </div>
+
+            <p class="module-notice" id="user-notice" role="status"></p>
+            <p class="inv-count" id="user-count" aria-live="polite"></p>
+
+            <section class="cards users" id="users-list" aria-label="Técnicos y equipos asignados"></section>
+
+            <p class="user-hint">
+                Los técnicos se administran desde <a href="funcionarios.html">Funcionarios</a>.
+            </p>
+        </main>
+    </div>
+
+        <!-- Modal de usuario -->
+    <div class="modal" id="user-modal" hidden>
+        <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="um-name">
+            <header class="modal-head">
+                <span class="uavatar" id="um-avatar"></span>
+                <div>
+                    <h2 id="um-name"></h2>
+                    <p class="urole" id="um-role"></p>
+                </div>
+                <button type="button" class="modal-close" id="um-close" aria-label="Cerrar">✕</button>
+            </header>
+
+            <div class="modal-body">
+                <div class="eq-grid" id="um-rows"></div>
+            </div>
+        </div>
+    </div>
+
+        <script src="../js/sidebar-render.js?v=34"></script>
+    <script src="../js/sidebar.js"></script>
+        <script src="../js/api-client.js?v=4"></script>
+        <script src="../js/float-windows.js?v=1"></script><script src="../js/usuario.js?v=2"></script>
+</body>
+</html>

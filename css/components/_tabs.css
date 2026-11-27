@@ -1,0 +1,17 @@
+/* ===== Pestañas de una página con varias vistas (Herramientas / Por técnico) ===== */
+.module-tabs { display: flex; gap: 4px; margin: 0 0 14px; border-bottom: 1px solid #e5e7eb; }
+.module-tab {
+  margin-bottom: -1px;
+  padding: 9px 16px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: #6b7280;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.module-tab:hover { color: #1f2937; }
+.module-tab.is-active { color: #130a74; border-bottom-color: #3b92ea; }
+.module-tab:focus-visible { outline: 2px solid #3b92ea; outline-offset: -2px; }
+

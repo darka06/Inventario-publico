@@ -1,0 +1,14 @@
+<?php
+declare(strict_types=1);
+
+// Solo para desarrollo local por HTTP. En producción define INVENTARIO_ENV=production.
+// Copia este archivo como config.local.php y reemplaza los valores.
+// No uses estas credenciales de ejemplo en producción.
+$GLOBALS['INVENTARIO_ENV'] = 'development';
+$GLOBALS['INVENTARIO_DB_HOST'] = '127.0.0.1';
+$GLOBALS['INVENTARIO_DB_PORT'] = '3306';
+$GLOBALS['INVENTARIO_DB_NAME'] = 'inventario_demo';
+$GLOBALS['INVENTARIO_DB_USER'] = 'inventario_app';
+$GLOBALS['INVENTARIO_DB_PASSWORD'] = 'reemplaza-por-una-clave-unica';
+
+// En producción configura INVENTARIO_ENV=production en el entorno del servidor.

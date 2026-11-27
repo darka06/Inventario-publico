@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Proveedores - Inventario</title>
+  <link rel="stylesheet" href="../css/styles.css?v=53">
+  <link rel="icon" href="../icons/favicon.svg?v=3" type="image/svg+xml">
+</head>
+<body data-root="../" data-page="suppliers" data-contact-type="Proveedor">
+  <img class="menu-btn" src="../icons/ui/menu.svg" alt="Menú" role="button" tabindex="0" aria-controls="sidebar">
+  <div class="layout"><div class="backdrop"></div><aside class="sidebar" id="sidebar"></aside><main class="content module-content" id="module-app"></main></div>
+  <div class="modal" id="form-modal" hidden><div class="modal-box sm" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <header class="modal-head"><h2 id="modal-title"></h2><button type="button" class="modal-close" aria-label="Cerrar">✕</button></header>
+    <form class="modal-body" id="module-form"><div class="form-grid" id="form-fields"></div><footer class="modal-foot"><button type="button" class="btn-cancel" data-close>Cancelar</button><button type="submit" class="btn-save">Guardar</button></footer></form>
+  </div></div>
+  <div class="modal" id="detail-modal" hidden><div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="detail-title">
+    <header class="modal-head"><h2 id="detail-title"></h2><button type="button" class="modal-close" aria-label="Cerrar">✕</button></header><div class="modal-body" id="detail-body"></div>
+  </div></div>
+  <script src="../js/sidebar-render.js?v=34"></script><script src="../js/sidebar.js"></script><script src="../js/api-client.js?v=4"></script><script src="../js/float-windows.js?v=1"></script><script src="../js/modulos.php"></script>
+</body>
+</html>

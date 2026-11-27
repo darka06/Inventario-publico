@@ -1,0 +1,49 @@
+/* ===== Detalle de activo: acciones en la cabecera y modal aparte de historial ===== */
+.detail-modal-box.detail-modal-wide { width: min(720px, 100%); }
+.detail-modal-box .modal-head { flex-wrap: wrap; }
+.detail-modal-box .modal-head h2 { flex: 1 1 200px; }
+.detail-head-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-left: auto;
+}
+.detail-head-actions + .modal-close { margin-left: 0; }
+.detail-head-actions .btn-save,
+.detail-head-actions .btn-cancel,
+.detail-head-actions .btn-danger {
+  height: 32px;
+  padding: 0 14px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.detail-head-actions .btn-save { background: var(--green); color: #14210a; }
+.detail-head-actions .btn-save:hover { background: #8bbd17; }
+
+.history-modal { background: rgba(0, 0, 0, .3); }
+.detail-history-box { width: min(440px, 100%); max-height: calc(100vh - 24px); }
+.detail-history-box .modal-head { padding: 10px 16px; }
+.detail-history-box .modal-head h2 { min-width: 0; font-size: 17px; overflow-wrap: anywhere; }
+.detail-history-box .modal-body { padding: 12px 16px 16px; }
+.detail-history-box .detail-section { padding: 10px 12px; }
+.detail-history-box .detail-timeline li:nth-child(n + 3) { display: list-item; }
+.detail-history-box .detail-timeline-note { -webkit-line-clamp: 3; }
+
+@media (max-width: 800px) {
+  .detail-head-actions { order: 3; flex: 1 1 100%; margin-left: 0; }
+  .detail-head-actions > * { flex: 1 1 0; padding: 0 8px; }
+  .detail-head-actions + .modal-close { margin-left: auto; }
+}
+/* Acciones del detalle: pie del modal, abajo a la derecha */
+.detail-foot {
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 16px;
+  border-top: 1px solid #e7e7e7;
+  background: #fff;
+}
+.detail-foot .detail-head-actions { margin-left: 0; justify-content: flex-end; }

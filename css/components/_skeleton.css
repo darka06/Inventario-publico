@@ -1,0 +1,34 @@
+/* ---------- Skeleton loaders ---------- */
+.sk {
+  display: block;
+  max-width: 100%;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #eceff3 25%, #f6f8fa 45%, #eceff3 65%);
+  background-size: 300% 100%;
+  animation: sk-shimmer 1.4s ease-in-out infinite;
+}
+.sk-circle { flex: none; width: 40px; height: 40px; border-radius: 50%; }
+.sk-table th .sk { background-color: #e3e7ec; }
+.sk-table td, .sk-table th { white-space: nowrap; }
+.sk-card { gap: 12px; padding: 18px; min-height: 120px; }
+.sk-list { display: grid; gap: 12px; }
+.sk-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+}
+.sk-lines { flex: 1; display: grid; gap: 8px; min-width: 0; }
+.sk-block { width: 100%; border-radius: 8px; height: var(--sk-block-height, 120px); }
+.sk-dim { width: var(--sk-width, 100%); height: var(--sk-height, auto); }
+@keyframes sk-shimmer {
+  from { background-position: 100% 0; }
+  to   { background-position: 0 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sk { animation: none; }
+}
+

@@ -1,0 +1,131 @@
+/* ===== Página Usuario: formulario ===== */
+.modal-box.sm { width: min(640px, 100%); }
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 16px;
+}
+
+.modal-box.module-form-modal {
+  width: min(760px, 100%);
+  max-height: min(88vh, 820px);
+}
+.modal-box.module-form-modal.modal-compact { width: min(440px, 100%); }
+.module-form-modal.modal-compact .asset-form-section-fields { grid-template-columns: 1fr; }
+.module-form-modal .modal-head {
+  flex: 0 0 auto;
+  padding: 18px 24px;
+}
+.module-form-modal .modal-head h2 {
+  color: #202b3b;
+  font-size: 22px;
+  font-weight: 700;
+}
+.module-form-modal #module-form,
+.module-form-modal #user-form {
+  display: flex;
+  min-height: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 14px;
+  background: #f4f6f8;
+}
+.module-form-modal #form-fields,
+.module-form-modal .form-grid {
+  display: grid;
+  min-height: 0;
+  flex: 1 1 auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
+  gap: 12px;
+  overflow: auto;
+  padding: 2px 4px 4px 2px;
+}
+.module-form-modal #form-fields > .asset-form-section {
+  grid-column: 1 / -1;
+}
+.asset-form-section {
+  min-width: 0;
+  padding: 16px 18px;
+  border: 1px solid #e8ebf0;
+  border-radius: 9px;
+  background: #fff;
+}
+.asset-form-section-heading { margin-bottom: 12px; }
+.asset-form-section-heading h3 {
+  margin: 0;
+  color: #26364b;
+  font-size: 15px;
+  font-weight: 650;
+}
+.asset-form-section-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px 16px;
+}
+.f { display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: #374151; }
+.f.full { grid-column: 1 / -1; }
+.f[hidden] { display: none; }
+
+.f input,
+.f select,
+.f textarea {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #fff;
+  font: inherit;
+  color: #111827;
+}
+.f textarea { resize: vertical; }
+.f input:focus,
+.f select:focus,
+.f textarea:focus { outline: 2px solid #2f66dd; outline-offset: -1px; border-color: transparent; }
+
+.modal-foot {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid #eef0f2;
+}
+.module-form-modal .modal-foot {
+  flex: 0 0 auto;
+  margin-top: 0;
+  padding: 12px 4px 2px;
+  border-top-color: #e1e5eb;
+  background: #f4f6f8;
+}
+.modal-foot .btn-cancel { margin-left: auto; }
+
+.btn-danger {
+  height: 36px;
+  padding: 0 14px;
+  border: 1px solid #ff4757;
+  border-radius: 4px;
+  background: #fff;
+  color: #d62839;
+  font: inherit;
+  cursor: pointer;
+}
+.btn-danger:hover { background: #fff1f2; }
+.btn-danger[hidden] { display: none; }
+
+.ucard.inactive { opacity: .6; }
+.ustats li b { text-align: right; overflow-wrap: anywhere; }
+
+@media (max-width: 800px) {
+  .module-form-modal #form-fields,
+  .module-form-modal .form-grid { grid-template-columns: 1fr; }
+  .asset-form-section-fields { grid-template-columns: 1fr; gap: 11px; }
+  .modal-box.module-form-modal { max-height: 92vh; }
+  .module-form-modal .modal-head { padding: 14px 18px; }
+  .module-form-modal #module-form,
+  .module-form-modal #user-form { padding: 10px; }
+  .asset-form-section { padding: 13px 14px; }
+}
+

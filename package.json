@@ -1,0 +1,13 @@
+{
+  "name": "inventario-global",
+  "version": "1.0.0",
+  "description": "Sistema de gestión de inventario",
+  "scripts": {
+    "minify": "node build-css.js && node minify.js",
+    "postinstall": "echo 'Instalación completa. Ejecuta npm run minify para producción.'"
+  },
+  "devDependencies": {
+    "clean-css": "^5.3.3",
+    "terser": "^5.36.0"
+  }
+}
