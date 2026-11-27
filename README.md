@@ -25,7 +25,7 @@ Aplicación web para registrar y consultar activos, herramientas, insumos, compr
 1. Clona el repositorio y entra a su carpeta:
 
    ```sh
-   git clone https://github.com/darka06/Inventario-publico.git
+   git clone https://github.com/darka06/inventario.git
    cd Inventario-publico
    ```
 
