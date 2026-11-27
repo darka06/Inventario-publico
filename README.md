@@ -38,7 +38,7 @@ Aplicación web para registrar y consultar activos, herramientas, insumos, compr
 
    La primera orden crea la base y las tablas; la segunda carga los registros ficticios. Si ya existe una instalación de demostración con datos que quieras conservar, haz una copia antes de importar el esquema.
 
-3. Crea una cuenta de base de datos exclusiva para la aplicación, con acceso solo a `inventario_demo`. Para el uso normal, bastan permisos de lectura y escritura (`SELECT`, `INSERT`, `UPDATE` y `DELETE)); importa el esquema con una cuenta administrativa local y no uses esa cuenta para ejecutar la aplicación.
+3. Crea una cuenta de base de datos exclusiva para la aplicación, con acceso solo a `inventario_demo`. Para el uso normal bastan los permisos `SELECT`, `INSERT`, `UPDATE` y `DELETE`. Importa el esquema con una cuenta administrativa local y no uses esa cuenta para ejecutar la aplicación.
 
 4. Copia `api/config.local.php.example` a `api/config.local.php` y configura host, puerto, nombre de base de datos, usuario y contraseña locales. Este archivo está excluido de Git. Usa una clave propia y no reutilices credenciales de otros servicios.
 
